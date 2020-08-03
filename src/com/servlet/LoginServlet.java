@@ -13,27 +13,47 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LoginServlet() {
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public LoginServlet() {
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.getRequestDispatcher("login.jsp").forward(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		// get user's input
+		String userId = request.getParameter("userId");
+		String password = request.getParameter("password");
+		// get default id and password in servlet config
+		String defaultId = getInitParameter("userId");
+		String defaultPassword = getInitParameter("password");
+
+		// check if id & password is correct?
+		if ((userId != null) && (password != null)) {	//prevent NullPointerException
+			if ((userId.equals(defaultId)) && (password.equals(defaultPassword))) {
+				request.setAttribute("userId", userId); //add an attribute to request
+				request.getRequestDispatcher("index.jsp").forward(request, response); //pass request to "index.jsp"
+				return;
+			}
+		}
+
 		request.getRequestDispatcher("login.jsp").forward(request, response);
 	}
 

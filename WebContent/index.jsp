@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=BIG5"
-    pageEncoding="BIG5"%>
+	pageEncoding="BIG5"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Hello World~</h1>
+	<h1>Hello World!</h1>
 </body>
 </html>
