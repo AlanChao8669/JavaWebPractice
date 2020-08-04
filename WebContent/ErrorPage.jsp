@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=BIG5"
 	pageEncoding="BIG5"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Hello, <%=request.getAttribute("userId") %>. 
+	<h1><%=request.getServletContext().getInitParameter("errorMsg")%> 
 	</h1>
-	<h2>This is my first servlet.</h2>
+	<form action="return_login">
+		<input name="button" type="submit" id="button" value="ªð¦^">
+	</form>
 </body>
 </html>

@@ -1,8 +1,8 @@
 package com.servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class LoginServlet
  */
-@WebServlet("/LoginServlet")
+//@WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -42,19 +42,20 @@ public class LoginServlet extends HttpServlet {
 		String userId = request.getParameter("userId");
 		String password = request.getParameter("password");
 		// get default id and password in servlet config
-		String defaultId = getInitParameter("userId");
-		String defaultPassword = getInitParameter("password");
+		String defaultId = getServletConfig().getInitParameter("userId");
+		String defaultPassword = getServletConfig().getInitParameter("password");
 
 		// check if id & password is correct?
-		if ((userId != null) && (password != null)) {	//prevent NullPointerException
-			if ((userId.equals(defaultId)) && (password.equals(defaultPassword))) {
-				request.setAttribute("userId", userId); //add an attribute to request
-				request.getRequestDispatcher("index.jsp").forward(request, response); //pass request to "index.jsp"
-				return;
-			}
+		if ((userId != null) && (password != null) // prevent NullPointerException
+				&& (userId.equals(defaultId)) && (password.equals(defaultPassword))) { // correct
+			request.setAttribute("userId", userId); // add an attribute to request
+			request.getRequestDispatcher("index.jsp").forward(request, response); // pass request to "index.jsp"
+			return;
+		} else { // go to wrong page
+			request.getRequestDispatcher("ErrorPage.jsp").forward(request, response);
+			return;
 		}
-
-		request.getRequestDispatcher("login.jsp").forward(request, response);
+		
 	}
 
 }
