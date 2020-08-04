@@ -15,7 +15,7 @@
 			<param-value>1234</param-value>
 		</init-param>
 	</servlet>
-	
+
 	<servlet-mapping>
 		<servlet-name>LoginServlet</servlet-name>
 		<url-pattern>/</url-pattern>
@@ -24,10 +24,16 @@
 		<servlet-name>LoginServlet</servlet-name>
 		<url-pattern>/returnLogin</url-pattern>
 	</servlet-mapping>
-	
+
+
 	<context-param>
 		<param-name>errorMsg</param-name>
 		<param-value>Please check your account, thank you!</param-value>
 	</context-param>
-	
+
+	<!-- register Listener[myLister] which can count how many users are online-->
+	<listener>
+		<listener-class>com.listener.myListener</listener-class>
+	</listener>
+
 </web-app>
