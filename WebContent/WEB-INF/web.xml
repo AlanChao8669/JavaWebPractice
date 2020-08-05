@@ -15,11 +15,19 @@
 			<param-value>1234</param-value>
 		</init-param>
 	</servlet>
-
 	<servlet-mapping>
 		<servlet-name>LoginServlet</servlet-name>
 		<url-pattern>/LoginServlet</url-pattern>
 		<url-pattern>/returnLogin</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>IdentityImgServlet</servlet-name>
+		<servlet-class>com.servlet.IdentityImgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>IdentityImgServlet</servlet-name>
+		<url-pattern>/IdentityImgServlet</url-pattern>
 	</servlet-mapping>
 
 

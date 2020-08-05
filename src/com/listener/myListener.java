@@ -20,17 +20,17 @@ public class myListener implements HttpSessionListener {
 	 * @see HttpSessionListener#sessionCreated(HttpSessionEvent)
 	 */
 	public void sessionCreated(HttpSessionEvent arg0) {
-		System.out.println(arg0.getSession() + "創建了！！");
-		System.out.println(sessionNum);
-		sessionNum++; // user online.
+//		System.out.println(arg0.getSession() + "創建了！！");
+//		System.out.println(sessionNum);
+//		sessionNum++; // user online.
 	}
 
 	/**
 	 * @see HttpSessionListener#sessionDestroyed(HttpSessionEvent)
 	 */
 	public void sessionDestroyed(HttpSessionEvent arg0) {
-		System.out.println("session銷毀了！！");
-		sessionNum--; // user offline
+//		System.out.println("session銷毀了！！");
+//		sessionNum--; // user offline
 	}
 
 }

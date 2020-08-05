@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="BIG5">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		function reloadImage() {
+			document.getElementById('btn').disabled = true;
+			document.getElementById('identity').src = 'IdentityImgServlet';
+		}
+	</script>
+	<div>
+		<img alt="" src="IdentityImgServlet" id="identity"
+			onload="btn.disabled = false; " />
+	</div>
+	<div>
+		<input type=button value="重新產生" onclick="reloadImage()" id="btn">
+	</div>
+
+</body>
+</html>
