@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.listener.myListener;
+
 /**
  * Servlet implementation class LoginServlet
  */
@@ -48,7 +50,11 @@ public class LoginServlet extends HttpServlet {
 		// check if id & password is correct?
 		if ((userId != null) && (password != null) // prevent NullPointerException
 				&& (userId.equals(defaultId)) && (password.equals(defaultPassword))) { // correct
-			request.setAttribute("userId", userId); // add an attribute to request
+			
+//			int onlineUserNum = myListener.getSessionNum();	//get online users number by Mylistener
+			request.setAttribute("usersNum", myListener.getSessionNum());	//add it to request's attribute
+			request.setAttribute("userId", userId); // add user's id to request's attribute
+					
 			request.getRequestDispatcher("index.jsp").forward(request, response); // pass request to "index.jsp"
 			return;
 		} else { // go to wrong page
