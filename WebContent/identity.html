@@ -8,13 +8,21 @@
 	<script>
 		function reloadImage() {
 			document.getElementById('btn').disabled = true;
-			document.getElementById('identity').src = 'IdentityImgServlet';
+			document.getElementById('identity').src = 'IdentityImgServlet?ts=' + new Date().getTime();
 		}
+		
+		var image = new Image();
+		image.onload = function(){
+			btn.disabled = false;
+		}
+		image.src = 'IdentityImgServlet';
+		image.id = 'identity';
+		document.body.appendChild(image);
 	</script>
-	<div>
-		<img alt="" src="IdentityImgServlet" id="identity"
-			onload="btn.disabled = false; " />
-	</div>
+<!-- 	<div> -->
+<!-- 		<img alt="" src="IdentityImgServlet" id="identity" -->
+<!-- 			onload="btn.disabled = false; " /> -->
+<!-- 	</div> -->
 	<div>
 		<input type=button value="重新產生" onclick="reloadImage()" id="btn">
 	</div>
