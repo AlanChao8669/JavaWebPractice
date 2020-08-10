@@ -30,6 +30,15 @@
 		<url-pattern>/IdentityImgServlet</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>UploadServlet</servlet-name>
+		<servlet-class>com.servlet.UploadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UploadServlet</servlet-name>
+		<url-pattern>/UploadServlet</url-pattern>
+	</servlet-mapping>
+
 
 	<context-param>
 		<param-name>errorMsg</param-name>
