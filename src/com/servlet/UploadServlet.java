@@ -99,12 +99,11 @@ public class UploadServlet extends HttpServlet {
 
 		// 將檔案連結與說明印出到頁面上
 		if (file != null) {
-			out.print("檔案連結:");
 			out.println("<a href='" + request.getContextPath() + "/attachment/" + file.getName() + "' target=_blank>"
 					+ file.getName() + "</a>");
 		}
 		out.println("<br/>");
-		out.println("檔案說明:" + fileDescription);
+		out.println(fileDescription);
 
 	}
 
